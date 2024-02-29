@@ -1,0 +1,31 @@
+ChangeRes - History
+version 1.42
+Copyright (c) MMX Tiriss
+
+
+> V1.0 <
+
+ChangeRes first official release
+
+> V1.01 <
+
+- Solved bug causing stream read error
+- Solved bug in version math (inc/dec versions)
+
+> V1.2 <
+
+- Added Delphi 2005 and higher option file support (.bdsproj)
+- Solved some bugs in utf8 handling
+
+> V1.3 <
+
+- Added Delphi 2007 and higher option file support (.dproj, msbuild)
+- Added new version setting functionality (based on date & time)
+
+> V1.4 <
+
+- Added Delphi 2009 .dproj support (small changes with D2007 .dproj)
+
+> V1.42 <
+
+- Added C++ Builder .cbproj support

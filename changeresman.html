@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<title>ChangeRes (by Tiriss)</title>
+</head>
+
+<body background="images/blueback.gif" bgcolor="#FFFFFF"
+link="#0000D0" vlink="#0000F0">
+
+<p>
+  <b>
+  <font color="#0000A0" size="5" face="Arial">Short manual of ChangeRes </font></b>
+</p>
+<p align="left">ChangeRes is a command line utility that allows you to change the
+contents of a .res (resource) file.</p>
+<p align="left">It can be useful in using batch building of (Delphi) projects.</p>
+<p align="left">Usage:</p>
+<p><font face="Courier New" size="2">&nbsp;<b>ChangeRes Filename (-U) (-F
+Filename) ([VERSIONINFO])
+Settings</b></font></p>
+<ul>
+  <li>
+    <p align="left"><b>Filename</b>:&nbsp;&nbsp;&nbsp; The name of the project resource
+    file (.res extension is optional)</li>
+  <li>
+    <p align="left"><b>-U</b>:&nbsp;&nbsp;&nbsp; Update option file (.dof, .bdsproj, .dproj, .cbproj, .bpk)
+    <i>(Optional)</i></li>
+  <li>
+    <p align="left"><b>-F Filename</b>:&nbsp;&nbsp;&nbsp; Get the settings from
+    a file (inifile format)
+    <i>(Optional)</i></li>
+  <li>
+    <p align="left"><b>Settings</b>:&nbsp;&nbsp;&nbsp; The things you wish to set
+    <i>(Optional)</i></li>
+</ul>
+    <p align="left">From version 1.3 and higher the <b>[VERSIONINFO]</b> part is optional, if it is not included it presumes that you mean versioninfo.</p>
+
+<p align="left">The settings can be one of the following:</p>
+<ul>
+  <li>
+    <p align="left"><b>FileVersion=n.n.n.n(/s)</b>:<br>
+    Set the FileVersion. 'n' can be one of the following:
+    <ul><li>a number or a number plus a sign. To add or
+    subtract from an existing number.<br>
+    <i>FileVersion=+1.0.0.+1 will turn 1.2.3.4 in
+    2.0.0.5. </i> </li>
+    <li><b>(new)</b> a '*' (for the last two parts) it will use .NET automatic version numbering based on date(3 part) and time(last part).<br>
+    <i>FileVersion=..*.* will turn 1.2.3.4 in
+    1.2.2046.1234 or something like that.</i>  </li>
+    <li><b>(new)</b> a date/time format string (like yy, mm, dd, hh, nn, ss) it will set the version part depending on the datetime using the format.<br>
+    <i>FileVersion=..yymm.ddhh will turn 1.2.3.4 in
+    1.2.703.1208 at 8 o'clock on March 12th 2007.</i><br> A few things to note: a version parts maximum value = 65535 and you can use ddd for the day number in the year, so yyddd will result in 7032 for Feb 1st 2007.</li>
+    </ul>
+    By adding /s you can tell the program to also add the line FileVersion=n.n.n.n to the strings section<br>
+    </p>
+  </li>
+  <li>
+    <p align="left"><b>ProductVersion=n.n.n.n(/s)</b>:<br>
+    Set the ProductVersion. See explanation of FileVersion<br>
+    </p>
+  </li>
+  <li>
+    <p align="left"><b>FileFlags=+/-Flags</b>:<br>
+    Set FileFlags. FileFlags can be one of the following: VS_FF_DEBUG, VS_FF_PRERELEASE,
+    VS_FF_PATCHED, VS_FF_PRIVATEBUILD, VS_FF_INFOINFERRED, VS_FF_SPECIALBUILD.
+    Example: FileFlags=+VS_FF_PATCHED-VS_FF_DEBUG<br>
+    </p>
+  </li>
+  <li>
+    <p align="left"><b>FileDate=yyyymmddhhnnss</b> or <b>now</b> or <b>today</b>:<br>
+    Set versioninfo's filedate. You can skip the time part and include only the
+    date. <b>now</b> sets the date and time to now and <b>today</b> sets the
+    date to today and leaves the time blank<br>
+    Example: Filedate=20070301 or Filedate=20070301235900 or Filedate=today<br>
+    </p>
+  </li>
+  <li>
+    <p align="left"><b>\StringFileInfo\\String=Value</b>:<br>
+    Set value of a String.<br>
+    Example: \StringFileInfo\\CompanyName=Tiriss<br>
+    </p>
+  </li>
+  <li>
+    <p align="left"><b>-\StringFileInfo\\String</b>:<br>
+    Remove the string.<br>
+    Example: -\StringFileInfo\\CompanyName
+    </p>
+  </li>
+</ul>
+<p>Examples:</p>
+
+<p><font face="Courier New" size="2">&nbsp;<b>ChangeRes Project1.res -U [VERSIONINFO]
+FileVersion=1.2.3.4/s ProductVersion=1.2.0.0 \StringFileInfo\\CompanyName=MyCompany</b></font></p>
+<p><font face="Courier New" size="2">&nbsp;<b>ChangeRes Project1.res FileVersion=...+1/s FileDate=20070301010203</b></font></p>
+<p><font face="Courier New" size="2">&nbsp;<b>ChangeRes Project1 -U FileVersion=.yyddd.hhnn.ss/s ProductVersion=.yyddd.0.0/s</b></font></p>
+<p><font face="Courier New" size="2">&nbsp;<b>ChangeRes Project1 -U -F VersionInfo.ini</b></font></p>
+<p>Example of VersionInfo.ini:</p>
+
+<p><font face="Courier New" size="2"><b>[VERSIONINFO]<br>
+FileVersion=1.2.3.4/s<br>
+ProductVersion=1.2.0.0</b></font></p>
+<p>&nbsp;</p>
+
+<p>You can only change VersionInfo parts (yet) of win32 executables and
+libraries with ChangeRes</p>
+
+<p>&nbsp;</p>
+
+<p><font size="1">&copy; MMX </font><a href="http://www.tiriss.com/" target="_top"><font
+size="1">Tiriss</font></a></p>
+
+</body>
+</html>

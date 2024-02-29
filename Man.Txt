@@ -1,0 +1,34 @@
+      WriteLn('Usage: ChangeRes Filename (-U) [VERSIONINFO] (Settings)');
+      WriteLn('');
+      WriteLn('-U (optional):       Update option file (.dof, .bpk)');
+      WriteLn('Settings (optional): The things you wish to set');
+      WriteLn('');
+      WriteLn('For VersionInfo: ');
+      WriteLn('  FileVersion=?.?.?.?(/s):       set FileVersion (/s: set stringvalue also)');
+      WriteLn('  ProductVersion=?.?.?.?(/s):    set ProductVersion (/s: see above)');
+      WriteLn('  FileFlags=+-Flags:             set FileFlags (example: +VS_FF_SPECIALBUILD)');
+      WriteLn('  \StringFileInfo\\String=Value: set value of a String');
+      WriteLn('  -\StringFileInfo\\String:      remove stringvalue');
+      WriteLn('');
+      WriteLn('Example:');
+      WriteLn(' ChangeRes Project1.Res -U [VERSIONINFO] FileVersion=1.2.3.4/s FileFlags=+VS_FFSPECIALBUILD');
+      WriteLn('');
+      WriteLn('For more info or new versions see: http://www.tiriss.com/');
+ 
+    if CompareText('VS_FF_DEBUG', aValue) = 0 then
+      Flag := VS_FF_DEBUG
+    else
+    if CompareText('VS_FF_PRERELEASE', aValue) = 0 then
+      Flag := VS_FF_PRERELEASE
+    else
+    if CompareText('VS_FF_PATCHED', aValue) = 0 then
+      Flag := VS_FF_PATCHED
+    else
+    if CompareText('VS_FF_PRIVATEBUILD', aValue) = 0 then
+      Flag := VS_FF_PRIVATEBUILD
+    else
+    if CompareText('VS_FF_INFOINFERRED', aValue) = 0 then
+      Flag := VS_FF_INFOINFERRED
+    else
+    if CompareText('VS_FF_SPECIALBUILD', aValue) = 0 then
+
