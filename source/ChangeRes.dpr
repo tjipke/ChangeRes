@@ -13,7 +13,7 @@ uses
   ResFiles in '.\SharedCode\ResFiles.pas',
   // TrsChgResPro in 'TrsChgResPro.pas',
   BdsProjSupport in 'BdsProjSupport.pas',
-  LibXmlParser in '.\XMLParser\LibXmlParser.pas',
+  LibXmlParser in '..\delphi-xmlparser\LibXmlParser.pas',
   ChangeResApp in 'ChangeResApp.pas';
 
 // {$I CheckLicenseChangeRes.inc}
@@ -108,9 +108,9 @@ begin
         Beep;
         E.Message := 'This trial version is expired! (code:'+E.ClassName[1]+')'#13#10'If you want to continue using this product, get the retail version from http://www.tiriss.com/changeres/';
       end;
-      {$ELSE}
-      if E.ClassNameIs(LicException.ClassName) or ((E.ClassParent <> nil) and E.ClassParent.ClassNameIs(LicException.ClassName)) then
-        E.Message := 'This retail version needs a license file (.lic).' + E.ClassName + ': ' + E.Message;
+      //{$ELSE}
+      //if E.ClassNameIs(LicException.ClassName) or ((E.ClassParent <> nil) and E.ClassParent.ClassNameIs(LicException.ClassName)) then
+      //  E.Message := 'This retail version needs a license file (.lic).' + E.ClassName + ': ' + E.Message;
       {$ENDIF}
       WriteLn(ErrOutput, E.Message);
       ExitCode := 1;

@@ -68,18 +68,20 @@
     <DelphiCompile Include="ChangeRes.dpr">
       <MainSource>MainSource</MainSource>
     </DelphiCompile>
-    <DCCReference Include="..\..\3rdparty\XMLParser\LibXmlParser.pas" />
+    <DCCReference Include="..\..\delphi-xmlparser\LibXmlParser.pas" />
     <DCCReference Include="..\SharedCode\ResFiles.pas" />
     <DCCReference Include="..\SharedCode\VersionResources.pas" />
     <DCCReference Include="BdsProjSupport.pas" />
     <DCCReference Include="ChangeResApp.pas" />
     <DCCReference Include="TrsChgResPro.pas" />
-    <None Include="..\SharedCode\CheckLicense1a.inc" />
+    <!--
+	<None Include="..\SharedCode\CheckLicense1a.inc" />
     <None Include="..\SharedCode\CheckLicense1b.inc" />
     <None Include="..\SharedCode\CheckLicense2.inc" />
     <None Include="..\SharedCode\CheckLicense3.inc" />
     <None Include="..\SharedCode\CheckLicense4a.inc" />
     <None Include="..\SharedCode\CheckLicense4b.inc" />
     <None Include="..\SharedCode\CheckLicenseChangeRes.inc" />
+	-->
   </ItemGroup>
 </Project>

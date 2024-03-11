@@ -112,7 +112,7 @@ implementation
 
 uses SysUtils{$IFDEF TRIAL}, Registry{$ENDIF};
 
-{$I CheckLicenseChangeRes.inc}
+//{$I CheckLicenseChangeRes.inc}
 
 var
   FResTypeStrHandlers: TStringList;
@@ -438,7 +438,7 @@ begin
   end;
 end;
 {$DEFINE PROCS}
-{$I CheckLicense3.inc}
+//{$I CheckLicense3.inc}
 {$UNDEF PROCS}
 
 procedure TResourceFile.SaveToFile(const aFilename: string);
@@ -457,7 +457,7 @@ begin
       ResourceParts[i].SaveToStream(F);
     end;
     F.Size := F.Position;
-    {$I CheckLicense3.inc}
+    //{$I CheckLicense3.inc}
   finally
     Free;
   end;
