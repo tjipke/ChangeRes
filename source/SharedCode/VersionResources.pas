@@ -144,7 +144,7 @@ implementation
 
 uses SysUtils, DateUtils;
 
-{$I CheckLicenseChangeRes.inc}
+//{$I CheckLicenseChangeRes.inc}
 var
   GStartTime: TDateTime; 
 
@@ -470,7 +470,7 @@ end;
 procedure TVersionResource.LoadResourcePartData(aSender: TResourcePart; aPart: 
    TStream);
 begin
-  {$I CheckLicense2.inc}
+  //{$I CheckLicense2.inc}
   inherited;
   // delegate loading to a TVersionResourceChild
   FVersionInfo.LoadFromStream(aPart);

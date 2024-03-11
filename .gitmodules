@@ -1,0 +1,3 @@
+[submodule "delphi-xmlparser"]
+	path = delphi-xmlparser
+	url = https://github.com/cintex/delphi-xmlparser
